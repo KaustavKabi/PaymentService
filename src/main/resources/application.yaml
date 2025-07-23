@@ -1,5 +1,6 @@
-spring.application.name=PaymentService
 spring:
+  application:
+    name: PaymentService
   datasource:
     url: jdbc:postgresql://localhost:5432/paymentdb
     username: postgres
