@@ -1,26 +1,37 @@
 package com.payment.service.Entity;
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
+import com.payment.service.Enum.PaymentStatusEnum;
+import com.payment.service.Enum.PaymentMethodEnum;
+import java.util.Date;
 
 @Entity
-@Table(name = "payments")
+@Table(name = "paymentdb")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime timestamp;
+    private Long orderId;
+    private Date timestamp;
     private Double amount;
-    private String payer;
-    private String status;
+    private PaymentMethodEnum paymentMethod;
+    private PaymentStatusEnum paymentStatus;
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public Double getAmount() {
@@ -31,28 +42,29 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Long getId() {
-        return id;
+
+    public PaymentMethodEnum getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPaymentMethod(PaymentMethodEnum paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
-    public String getStatus() {
-        return status;
+    public PaymentStatusEnum getPaymentStatus() {
+        return paymentStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPaymentStatus(PaymentStatusEnum paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
-    public String getPayer() {
-        return payer;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setPayer(String payer) {
-        this.payer = payer;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }
 
