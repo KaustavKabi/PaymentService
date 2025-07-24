@@ -18,13 +18,20 @@ public class PaymentController {
             this.service = service;
         }
 
-        @PostMapping("/create")
-        public ResponseEntity<Payment> createOrder(@RequestBody Payment payment) {
-            Payment savePayment = service.CreatePayment(payment);
+        @PostMapping("/initiate")
+        public ResponseEntity<Payment> initiatePayment(@RequestBody Payment payment) {
+            Payment savePayment = service.initiatePayment(payment);
             return ResponseEntity.ok(savePayment);
         }
 
-        @GetMapping
+        @PostMapping("/status")
+        public ResponseEntity<Payment> statusRetrieval(@RequestBody Payment payment) {
+            Payment savePayment = service.statusRetrieval(payment);
+            return ResponseEntity.ok(savePayment);
+        }
+
+
+        @GetMapping("/all")
         public List<Payment> getAllPayments() {
             return service.getAllPayments();
         }
@@ -43,3 +50,4 @@ public class PaymentController {
         }
 
 }
+//initiate payment,status retrieval,update,refund processing apis
