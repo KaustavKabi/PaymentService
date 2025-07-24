@@ -1,0 +1,6 @@
+package com.payment.service.Enum;
+
+public enum PaymentStatusEnum {
+    INITIATED,PROCESSING,SUCCESS,FAILED,REFUNDED
+
+}
